@@ -5,9 +5,9 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
       <Diagram DiagramId="25d1aa9ff4a6458d9a5346230c276c66" Name="Diagram1">
-        <EntityTypeShape EntityType="TestModel.district" Width="1.5" PointX="3" PointY="0.875" />
-        <EntityTypeShape EntityType="TestModel.upazila" Width="1.5" PointX="5.25" PointY="1" />
-        <EntityTypeShape EntityType="TestModel.zone" Width="1.5" PointX="0.75" PointY="1.125" />
+        <EntityTypeShape EntityType="TestModel.district" PointX="3" PointY="0.875" Width="1.5" />
+        <EntityTypeShape EntityType="TestModel.upazila" PointX="5.25" PointY="1" Width="1.5" />
+        <EntityTypeShape EntityType="TestModel.zone" PointX="0.75" PointY="1.125" Width="1.5" />
         <AssociationConnector Association="TestModel.district_zone_fk" />
         <AssociationConnector Association="TestModel.upazila_district_fk" />
       </Diagram>

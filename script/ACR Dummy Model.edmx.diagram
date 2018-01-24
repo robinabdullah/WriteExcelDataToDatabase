@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="337a6e9dbde942aaa41b3f3cf8738083" Name="Diagram1" ShowGrid="false" DisplayType="false" >
+        <EntityTypeShape EntityType="ACR_x0020_Dummy_x0020_Model.acr_health_report" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ACR_x0020_Dummy_x0020_Model.acr_biodata" Width="2" PointX="2.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ACR_x0020_Dummy_x0020_Model.acr_personal_character" Width="1.75" PointX="5.75" PointY="0.75" />
+        <EntityTypeShape EntityType="ACR_x0020_Dummy_x0020_Model.acr_work" Width="2" PointX="8" PointY="0.75" />
+        <EntityTypeShape EntityType="ACR_x0020_Dummy_x0020_Model.acr_comment" Width="1.5" PointX="5.75" PointY="4.75" />
+        <EntityTypeShape EntityType="ACR_x0020_Dummy_x0020_Model.brief_work_description" Width="1.5" PointX="8" PointY="4.75" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

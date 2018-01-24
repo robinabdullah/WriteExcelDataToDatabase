@@ -1,0 +1,222 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="dshe_reqruitmentModel.Store" Provider="MySql.Data.MySqlClient" ProviderManifestToken="5.7" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="applicant_district">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="division_id" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="applicant_division">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="applicant_upazila">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="district_id" Type="int" />
+          <Property Name="is_applicable" Type="int" />
+        </EntityType>
+        <EntityType Name="universities">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="105" />
+          <Property Name="type" Type="int" />
+        </EntityType>
+        <Association Name="district_zone_fk">
+          <End Role="applicant_division" Type="Self.applicant_division" Multiplicity="1" />
+          <End Role="applicant_district" Type="Self.applicant_district" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="applicant_division">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="applicant_district">
+              <PropertyRef Name="division_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="upazila_district_fk">
+          <End Role="applicant_district" Type="Self.applicant_district" Multiplicity="0..1" />
+          <End Role="applicant_upazila" Type="Self.applicant_upazila" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="applicant_district">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="applicant_upazila">
+              <PropertyRef Name="district_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dshe_reqruitmentModelStoreContainer">
+          <EntitySet Name="applicant_district" EntityType="Self.applicant_district" Schema="dshe_reqruitment" store:Type="Tables" />
+          <EntitySet Name="applicant_division" EntityType="Self.applicant_division" Schema="dshe_reqruitment" store:Type="Tables" />
+          <EntitySet Name="applicant_upazila" EntityType="Self.applicant_upazila" Schema="dshe_reqruitment" store:Type="Tables" />
+          <EntitySet Name="universities" EntityType="Self.universities" Schema="dshe_reqruitment" store:Type="Tables" />
+          <AssociationSet Name="district_zone_fk" Association="Self.district_zone_fk">
+            <End Role="applicant_division" EntitySet="applicant_division" />
+            <End Role="applicant_district" EntitySet="applicant_district" />
+          </AssociationSet>
+          <AssociationSet Name="upazila_district_fk" Association="Self.upazila_district_fk">
+            <End Role="applicant_district" EntitySet="applicant_district" />
+            <End Role="applicant_upazila" EntitySet="applicant_upazila" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="dshe_reqruitmentModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="applicant_district">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="division_id" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="applicant_division" Relationship="Self.district_zone_fk" FromRole="applicant_district" ToRole="applicant_division" />
+          <NavigationProperty Name="applicant_upazila" Relationship="Self.upazila_district_fk" FromRole="applicant_district" ToRole="applicant_upazila" />
+        </EntityType>
+        <EntityType Name="applicant_division">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="applicant_district" Relationship="Self.district_zone_fk" FromRole="applicant_division" ToRole="applicant_district" />
+        </EntityType>
+        <EntityType Name="applicant_upazila">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="district_id" Type="Int32" />
+          <Property Name="is_applicable" Type="Int32" />
+          <NavigationProperty Name="applicant_district" Relationship="Self.upazila_district_fk" FromRole="applicant_upazila" ToRole="applicant_district" />
+        </EntityType>
+        <EntityType Name="university">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="105" FixedLength="false" Unicode="false" />
+          <Property Name="type" Type="Int32" />
+        </EntityType>
+        <Association Name="district_zone_fk">
+          <End Role="applicant_division" Type="Self.applicant_division" Multiplicity="1" />
+          <End Role="applicant_district" Type="Self.applicant_district" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="applicant_division">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="applicant_district">
+              <PropertyRef Name="division_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="upazila_district_fk">
+          <End Role="applicant_district" Type="Self.applicant_district" Multiplicity="0..1" />
+          <End Role="applicant_upazila" Type="Self.applicant_upazila" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="applicant_district">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="applicant_upazila">
+              <PropertyRef Name="district_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="dshe_reqruitmentEntitiesNew" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="applicant_district" EntityType="Self.applicant_district" />
+          <EntitySet Name="applicant_division" EntityType="Self.applicant_division" />
+          <EntitySet Name="applicant_upazila" EntityType="Self.applicant_upazila" />
+          <EntitySet Name="universities" EntityType="Self.university" />
+          <AssociationSet Name="district_zone_fk" Association="Self.district_zone_fk">
+            <End Role="applicant_division" EntitySet="applicant_division" />
+            <End Role="applicant_district" EntitySet="applicant_district" />
+          </AssociationSet>
+          <AssociationSet Name="upazila_district_fk" Association="Self.upazila_district_fk">
+            <End Role="applicant_district" EntitySet="applicant_district" />
+            <End Role="applicant_upazila" EntitySet="applicant_upazila" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="dshe_reqruitmentModelStoreContainer" CdmEntityContainer="dshe_reqruitmentEntitiesNew">
+          <EntitySetMapping Name="applicant_district">
+            <EntityTypeMapping TypeName="dshe_reqruitmentModel.applicant_district">
+              <MappingFragment StoreEntitySet="applicant_district">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="division_id" ColumnName="division_id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="applicant_division">
+            <EntityTypeMapping TypeName="dshe_reqruitmentModel.applicant_division">
+              <MappingFragment StoreEntitySet="applicant_division">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="applicant_upazila">
+            <EntityTypeMapping TypeName="dshe_reqruitmentModel.applicant_upazila">
+              <MappingFragment StoreEntitySet="applicant_upazila">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="district_id" ColumnName="district_id" />
+                <ScalarProperty Name="is_applicable" ColumnName="is_applicable" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="universities">
+            <EntityTypeMapping TypeName="dshe_reqruitmentModel.university">
+              <MappingFragment StoreEntitySet="universities">
+                <ScalarProperty Name="id" ColumnName="id" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="type" ColumnName="type" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

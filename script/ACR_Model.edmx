@@ -1,0 +1,463 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="Model.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="11.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ACR_CONSIDERATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="nvarchar2" MaxLength="300" Nullable="false" />
+          <Property Name="PROFILE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_PERSONAL_INFO_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATED_ON" Type="date" />
+          <Property Name="CREATED_BY" Type="date" />
+          <Property Name="UPDATED_ON" Type="date" />
+          <Property Name="UPDATED_BY" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ACR_HEALTH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="HEIGHT" Type="number" Precision="38" Scale="0" />
+          <Property Name="WEIGHT" Type="number" Precision="38" Scale="0" />
+          <Property Name="VISION" Type="varchar2" MaxLength="10" />
+          <Property Name="BLOOD_GROUP" Type="varchar2" MaxLength="10" />
+          <Property Name="BLOOD_PRESSURE_SISTOL" Type="number" Precision="38" Scale="0" />
+          <Property Name="BLOOD_PRESSURE_DIASTOL" Type="number" Precision="38" Scale="0" />
+          <Property Name="ECG_REPORT" Type="nvarchar2" MaxLength="200" />
+          <Property Name="MEDICAL_CLASSIFICATION" Type="nvarchar2" MaxLength="200" />
+          <Property Name="DISABILITIES" Type="nvarchar2" MaxLength="400" />
+          <Property Name="REPORT_DATE" Type="date" />
+          <Property Name="HEALTH_OFFICER_NAME" Type="nvarchar2" MaxLength="300" />
+          <Property Name="HEALTH_OFFICER_DESIGNATION" Type="nvarchar2" MaxLength="250" />
+          <Property Name="CREATED_ON" Type="date" />
+          <Property Name="CREATED_BY" Type="number" Precision="38" Scale="0" />
+          <Property Name="PROFILE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_YEAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="UPDATED_ON" Type="date" />
+          <Property Name="UPDTAED_BY" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ACR_MASTER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_YEAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROFILE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SUPERVISOR_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="APPROVER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOTAL_SUPERVISOR" Type="number" Precision="38" Scale="0" />
+          <Property Name="IS_BACK" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOTAL_APPROVED" Type="number" Precision="38" Scale="0" />
+          <Property Name="IS_TOTAL_ONLY" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATED_ON" Type="date" />
+          <Property Name="CREATED_BY" Type="date" />
+          <Property Name="UPDTAED_ON" Type="date" />
+          <Property Name="UPDTAED_BY" Type="number" Precision="38" Scale="0" />
+          <Property Name="STATUS" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ACR_PERSONAL_DETAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROFILE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_YEAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DISCIPLINE" Type="number" Precision="38" Scale="0" />
+          <Property Name="JUDGEMENT" Type="number" Precision="38" Scale="0" />
+          <Property Name="IQ" Type="number" Precision="38" Scale="0" />
+          <Property Name="ENTHUSIASM" Type="number" Precision="38" Scale="0" />
+          <Property Name="PERSONALITY" Type="number" Precision="38" Scale="0" />
+          <Property Name="COOPERATION" Type="number" Precision="38" Scale="0" />
+          <Property Name="TIMELINESS" Type="number" Precision="38" Scale="0" />
+          <Property Name="RELIABILITY" Type="number" Precision="38" Scale="0" />
+          <Property Name="RESPONSIBILITY" Type="number" Precision="38" Scale="0" />
+          <Property Name="INTEREST_IN_WORK" Type="number" Precision="38" Scale="0" />
+          <Property Name="ACTIVITY_IN_DUTY" Type="number" Precision="38" Scale="0" />
+          <Property Name="SECURITY_AWARENESS" Type="number" Precision="38" Scale="0" />
+          <Property Name="BEHAVIOUR" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ACR_PERSONAL_INFO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MARITAL_STATUS" Type="number" Precision="38" Scale="0" />
+          <Property Name="CHILD_NO" Type="number" Precision="38" Scale="0" />
+          <Property Name="SENIORITY_POSITION" Type="number" Precision="38" Scale="0" />
+          <Property Name="JOINING_GOVT" Type="date" />
+          <Property Name="JOINING_GADGETED" Type="date" />
+          <Property Name="JOINING_CADRE" Type="date" />
+          <Property Name="JOINING_CURRENT_POST" Type="date" />
+          <Property Name="PAY_SCALE_ID" Type="number" Precision="38" Scale="0" />
+          <Property Name="CURRENT_BASIC_PAY" Type="number" Precision="38" Scale="0" />
+          <Property Name="ACADEMIC_QUALIFICATION" Type="nvarchar2" MaxLength="400" />
+          <Property Name="TRAINING_HOME" Type="nvarchar2" MaxLength="400" />
+          <Property Name="TRAINING_ABROAD" Type="nvarchar2" MaxLength="400" />
+          <Property Name="FOREIGN_LANG_SPEAKING" Type="nvarchar2" MaxLength="200" />
+          <Property Name="FOREIGN_LANG_READING" Type="nvarchar2" MaxLength="200" />
+          <Property Name="FOREIGN_LANG_WRITING" Type="nvarchar2" MaxLength="200" />
+          <Property Name="ACR_START" Type="date" />
+          <Property Name="ACR_END" Type="date" />
+          <Property Name="ACR_TYPE" Type="number" Precision="38" Scale="0" />
+          <Property Name="REPORING_DATE" Type="date" Nullable="false" />
+          <Property Name="CREATED_ON" Type="date" />
+          <Property Name="CREATED_BY" Type="number" Precision="38" Scale="0" />
+          <Property Name="UPDATED_ON" Type="date" />
+          <Property Name="UPDATED_BY" Type="number" Precision="38" Scale="0" />
+          <Property Name="PROFILE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_YEAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ACR_WORK_DETAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROFILE_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_YEAR" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_MASTER_ID" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROFESSIONAL_KNOWLEDGE" Type="number" Precision="38" Scale="0" />
+          <Property Name="WORK_QUALITY" Type="number" Precision="38" Scale="0" />
+          <Property Name="COMPLETED_WORK_QUANTITY" Type="number" Precision="38" Scale="0" />
+          <Property Name="SUPERVISION_CAPABILITY" Type="number" Precision="38" Scale="0" />
+          <Property Name="RELATION_WITH_COLLEGUE" Type="number" Precision="38" Scale="0" />
+          <Property Name="DECISION_MAKING" Type="number" Precision="38" Scale="0" />
+          <Property Name="DECISION_IMPLEMENTATION" Type="number" Precision="38" Scale="0" />
+          <Property Name="TRAINING_CAPABILITY" Type="number" Precision="38" Scale="0" />
+          <Property Name="EXPRESSIBILITY_WRITING" Type="number" Precision="38" Scale="0" />
+          <Property Name="EXPRESSIBILY_SPEAKING" Type="number" Precision="38" Scale="0" />
+          <Property Name="INTEREST_IN_ACR" Type="number" Precision="38" Scale="0" />
+          <Property Name="DUTIFULLNESS" Type="number" Precision="38" Scale="0" />
+          <Property Name="CREATED_ON" Type="date" />
+          <Property Name="CREATED_BY" Type="number" Precision="38" Scale="0" />
+          <Property Name="UPDATED_ON" Type="date" />
+          <Property Name="UPDATED_BY" Type="number" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="ModelStoreContainer">
+          <EntitySet Name="ACR_CONSIDERATION" EntityType="Self.ACR_CONSIDERATION" Schema="CPMIS_PDS" store:Type="Tables" />
+          <EntitySet Name="ACR_HEALTH" EntityType="Self.ACR_HEALTH" Schema="CPMIS_PDS" store:Type="Tables" />
+          <EntitySet Name="ACR_MASTER" EntityType="Self.ACR_MASTER" Schema="CPMIS_PDS" store:Type="Tables" />
+          <EntitySet Name="ACR_PERSONAL_DETAIL" EntityType="Self.ACR_PERSONAL_DETAIL" Schema="CPMIS_PDS" store:Type="Tables" />
+          <EntitySet Name="ACR_PERSONAL_INFO" EntityType="Self.ACR_PERSONAL_INFO" Schema="CPMIS_PDS" store:Type="Tables" />
+          <EntitySet Name="ACR_WORK_DETAIL" EntityType="Self.ACR_WORK_DETAIL" Schema="CPMIS_PDS" store:Type="Tables" />
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="ACR_CONSIDERATION">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPTION" Type="String" MaxLength="300" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="PROFILE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_PERSONAL_INFO_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATED_ON" Type="DateTime" />
+          <Property Name="CREATED_BY" Type="DateTime" />
+          <Property Name="UPDATED_ON" Type="DateTime" />
+          <Property Name="UPDATED_BY" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ACR_HEALTH">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="HEIGHT" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="WEIGHT" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="VISION" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BLOOD_GROUP" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="BLOOD_PRESSURE_SISTOL" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="BLOOD_PRESSURE_DIASTOL" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ECG_REPORT" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="MEDICAL_CLASSIFICATION" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="DISABILITIES" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="REPORT_DATE" Type="DateTime" />
+          <Property Name="HEALTH_OFFICER_NAME" Type="String" MaxLength="300" FixedLength="false" Unicode="true" />
+          <Property Name="HEALTH_OFFICER_DESIGNATION" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+          <Property Name="CREATED_ON" Type="DateTime" />
+          <Property Name="CREATED_BY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PROFILE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_YEAR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="UPDATED_ON" Type="DateTime" />
+          <Property Name="UPDTAED_BY" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ACR_MASTER">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_YEAR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROFILE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="SUPERVISOR_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="APPROVER_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOTAL_SUPERVISOR" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IS_BACK" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TOTAL_APPROVED" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IS_TOTAL_ONLY" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="CREATED_ON" Type="DateTime" />
+          <Property Name="CREATED_BY" Type="DateTime" />
+          <Property Name="UPDTAED_ON" Type="DateTime" />
+          <Property Name="UPDTAED_BY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="STATUS" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ACR_PERSONAL_DETAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROFILE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_YEAR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="DISCIPLINE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="JUDGEMENT" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="IQ" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ENTHUSIASM" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PERSONALITY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="COOPERATION" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TIMELINESS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="RELIABILITY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="RESPONSIBILITY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="INTEREST_IN_WORK" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ACTIVITY_IN_DUTY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="SECURITY_AWARENESS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="BEHAVIOUR" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityType Name="ACR_PERSONAL_INFO">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="MARITAL_STATUS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CHILD_NO" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="SENIORITY_POSITION" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="JOINING_GOVT" Type="DateTime" />
+          <Property Name="JOINING_GADGETED" Type="DateTime" />
+          <Property Name="JOINING_CADRE" Type="DateTime" />
+          <Property Name="JOINING_CURRENT_POST" Type="DateTime" />
+          <Property Name="PAY_SCALE_ID" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CURRENT_BASIC_PAY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="ACADEMIC_QUALIFICATION" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="TRAINING_HOME" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="TRAINING_ABROAD" Type="String" MaxLength="400" FixedLength="false" Unicode="true" />
+          <Property Name="FOREIGN_LANG_SPEAKING" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FOREIGN_LANG_READING" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="FOREIGN_LANG_WRITING" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+          <Property Name="ACR_START" Type="DateTime" />
+          <Property Name="ACR_END" Type="DateTime" />
+          <Property Name="ACR_TYPE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="REPORING_DATE" Type="DateTime" Nullable="false" />
+          <Property Name="CREATED_ON" Type="DateTime" />
+          <Property Name="CREATED_BY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="UPDATED_ON" Type="DateTime" />
+          <Property Name="UPDATED_BY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="PROFILE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_YEAR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="ACR_WORK_DETAIL">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROFILE_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_YEAR" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACR_MASTER_ID" Type="Decimal" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PROFESSIONAL_KNOWLEDGE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="WORK_QUALITY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="COMPLETED_WORK_QUANTITY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="SUPERVISION_CAPABILITY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="RELATION_WITH_COLLEGUE" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DECISION_MAKING" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DECISION_IMPLEMENTATION" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="TRAINING_CAPABILITY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="EXPRESSIBILITY_WRITING" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="EXPRESSIBILY_SPEAKING" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="INTEREST_IN_ACR" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="DUTIFULLNESS" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="CREATED_ON" Type="DateTime" />
+          <Property Name="CREATED_BY" Type="Decimal" Precision="38" Scale="0" />
+          <Property Name="UPDATED_ON" Type="DateTime" />
+          <Property Name="UPDATED_BY" Type="Decimal" Precision="38" Scale="0" />
+        </EntityType>
+        <EntityContainer Name="ACRDBContext" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="ACR_CONSIDERATION" EntityType="Self.ACR_CONSIDERATION" />
+          <EntitySet Name="ACR_HEALTH" EntityType="Self.ACR_HEALTH" />
+          <EntitySet Name="ACR_MASTER" EntityType="Self.ACR_MASTER" />
+          <EntitySet Name="ACR_PERSONAL_DETAIL" EntityType="Self.ACR_PERSONAL_DETAIL" />
+          <EntitySet Name="ACR_PERSONAL_INFO" EntityType="Self.ACR_PERSONAL_INFO" />
+          <EntitySet Name="ACR_WORK_DETAIL" EntityType="Self.ACR_WORK_DETAIL" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelStoreContainer" CdmEntityContainer="ACRDBContext">
+          <EntitySetMapping Name="ACR_CONSIDERATION">
+            <EntityTypeMapping TypeName="Model.ACR_CONSIDERATION">
+              <MappingFragment StoreEntitySet="ACR_CONSIDERATION">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="DESCRIPTION" ColumnName="DESCRIPTION" />
+                <ScalarProperty Name="PROFILE_ID" ColumnName="PROFILE_ID" />
+                <ScalarProperty Name="ACR_PERSONAL_INFO_ID" ColumnName="ACR_PERSONAL_INFO_ID" />
+                <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED_ON" ColumnName="UPDATED_ON" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACR_HEALTH">
+            <EntityTypeMapping TypeName="Model.ACR_HEALTH">
+              <MappingFragment StoreEntitySet="ACR_HEALTH">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="HEIGHT" ColumnName="HEIGHT" />
+                <ScalarProperty Name="WEIGHT" ColumnName="WEIGHT" />
+                <ScalarProperty Name="VISION" ColumnName="VISION" />
+                <ScalarProperty Name="BLOOD_GROUP" ColumnName="BLOOD_GROUP" />
+                <ScalarProperty Name="BLOOD_PRESSURE_SISTOL" ColumnName="BLOOD_PRESSURE_SISTOL" />
+                <ScalarProperty Name="BLOOD_PRESSURE_DIASTOL" ColumnName="BLOOD_PRESSURE_DIASTOL" />
+                <ScalarProperty Name="ECG_REPORT" ColumnName="ECG_REPORT" />
+                <ScalarProperty Name="MEDICAL_CLASSIFICATION" ColumnName="MEDICAL_CLASSIFICATION" />
+                <ScalarProperty Name="DISABILITIES" ColumnName="DISABILITIES" />
+                <ScalarProperty Name="REPORT_DATE" ColumnName="REPORT_DATE" />
+                <ScalarProperty Name="HEALTH_OFFICER_NAME" ColumnName="HEALTH_OFFICER_NAME" />
+                <ScalarProperty Name="HEALTH_OFFICER_DESIGNATION" ColumnName="HEALTH_OFFICER_DESIGNATION" />
+                <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="PROFILE_ID" ColumnName="PROFILE_ID" />
+                <ScalarProperty Name="ACR_YEAR" ColumnName="ACR_YEAR" />
+                <ScalarProperty Name="UPDATED_ON" ColumnName="UPDATED_ON" />
+                <ScalarProperty Name="UPDTAED_BY" ColumnName="UPDTAED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACR_MASTER">
+            <EntityTypeMapping TypeName="Model.ACR_MASTER">
+              <MappingFragment StoreEntitySet="ACR_MASTER">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="ACR_YEAR" ColumnName="ACR_YEAR" />
+                <ScalarProperty Name="PROFILE_ID" ColumnName="PROFILE_ID" />
+                <ScalarProperty Name="SUPERVISOR_ID" ColumnName="SUPERVISOR_ID" />
+                <ScalarProperty Name="APPROVER_ID" ColumnName="APPROVER_ID" />
+                <ScalarProperty Name="TOTAL_SUPERVISOR" ColumnName="TOTAL_SUPERVISOR" />
+                <ScalarProperty Name="IS_BACK" ColumnName="IS_BACK" />
+                <ScalarProperty Name="TOTAL_APPROVED" ColumnName="TOTAL_APPROVED" />
+                <ScalarProperty Name="IS_TOTAL_ONLY" ColumnName="IS_TOTAL_ONLY" />
+                <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDTAED_ON" ColumnName="UPDTAED_ON" />
+                <ScalarProperty Name="UPDTAED_BY" ColumnName="UPDTAED_BY" />
+                <ScalarProperty Name="STATUS" ColumnName="STATUS" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACR_PERSONAL_DETAIL">
+            <EntityTypeMapping TypeName="Model.ACR_PERSONAL_DETAIL">
+              <MappingFragment StoreEntitySet="ACR_PERSONAL_DETAIL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PROFILE_ID" ColumnName="PROFILE_ID" />
+                <ScalarProperty Name="ACR_YEAR" ColumnName="ACR_YEAR" />
+                <ScalarProperty Name="DISCIPLINE" ColumnName="DISCIPLINE" />
+                <ScalarProperty Name="JUDGEMENT" ColumnName="JUDGEMENT" />
+                <ScalarProperty Name="IQ" ColumnName="IQ" />
+                <ScalarProperty Name="ENTHUSIASM" ColumnName="ENTHUSIASM" />
+                <ScalarProperty Name="PERSONALITY" ColumnName="PERSONALITY" />
+                <ScalarProperty Name="COOPERATION" ColumnName="COOPERATION" />
+                <ScalarProperty Name="TIMELINESS" ColumnName="TIMELINESS" />
+                <ScalarProperty Name="RELIABILITY" ColumnName="RELIABILITY" />
+                <ScalarProperty Name="RESPONSIBILITY" ColumnName="RESPONSIBILITY" />
+                <ScalarProperty Name="INTEREST_IN_WORK" ColumnName="INTEREST_IN_WORK" />
+                <ScalarProperty Name="ACTIVITY_IN_DUTY" ColumnName="ACTIVITY_IN_DUTY" />
+                <ScalarProperty Name="SECURITY_AWARENESS" ColumnName="SECURITY_AWARENESS" />
+                <ScalarProperty Name="BEHAVIOUR" ColumnName="BEHAVIOUR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACR_PERSONAL_INFO">
+            <EntityTypeMapping TypeName="Model.ACR_PERSONAL_INFO">
+              <MappingFragment StoreEntitySet="ACR_PERSONAL_INFO">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="MARITAL_STATUS" ColumnName="MARITAL_STATUS" />
+                <ScalarProperty Name="CHILD_NO" ColumnName="CHILD_NO" />
+                <ScalarProperty Name="SENIORITY_POSITION" ColumnName="SENIORITY_POSITION" />
+                <ScalarProperty Name="JOINING_GOVT" ColumnName="JOINING_GOVT" />
+                <ScalarProperty Name="JOINING_GADGETED" ColumnName="JOINING_GADGETED" />
+                <ScalarProperty Name="JOINING_CADRE" ColumnName="JOINING_CADRE" />
+                <ScalarProperty Name="JOINING_CURRENT_POST" ColumnName="JOINING_CURRENT_POST" />
+                <ScalarProperty Name="PAY_SCALE_ID" ColumnName="PAY_SCALE_ID" />
+                <ScalarProperty Name="CURRENT_BASIC_PAY" ColumnName="CURRENT_BASIC_PAY" />
+                <ScalarProperty Name="ACADEMIC_QUALIFICATION" ColumnName="ACADEMIC_QUALIFICATION" />
+                <ScalarProperty Name="TRAINING_HOME" ColumnName="TRAINING_HOME" />
+                <ScalarProperty Name="TRAINING_ABROAD" ColumnName="TRAINING_ABROAD" />
+                <ScalarProperty Name="FOREIGN_LANG_SPEAKING" ColumnName="FOREIGN_LANG_SPEAKING" />
+                <ScalarProperty Name="FOREIGN_LANG_READING" ColumnName="FOREIGN_LANG_READING" />
+                <ScalarProperty Name="FOREIGN_LANG_WRITING" ColumnName="FOREIGN_LANG_WRITING" />
+                <ScalarProperty Name="ACR_START" ColumnName="ACR_START" />
+                <ScalarProperty Name="ACR_END" ColumnName="ACR_END" />
+                <ScalarProperty Name="ACR_TYPE" ColumnName="ACR_TYPE" />
+                <ScalarProperty Name="REPORING_DATE" ColumnName="REPORING_DATE" />
+                <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED_ON" ColumnName="UPDATED_ON" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+                <ScalarProperty Name="PROFILE_ID" ColumnName="PROFILE_ID" />
+                <ScalarProperty Name="ACR_YEAR" ColumnName="ACR_YEAR" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ACR_WORK_DETAIL">
+            <EntityTypeMapping TypeName="Model.ACR_WORK_DETAIL">
+              <MappingFragment StoreEntitySet="ACR_WORK_DETAIL">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PROFILE_ID" ColumnName="PROFILE_ID" />
+                <ScalarProperty Name="ACR_YEAR" ColumnName="ACR_YEAR" />
+                <ScalarProperty Name="ACR_MASTER_ID" ColumnName="ACR_MASTER_ID" />
+                <ScalarProperty Name="PROFESSIONAL_KNOWLEDGE" ColumnName="PROFESSIONAL_KNOWLEDGE" />
+                <ScalarProperty Name="WORK_QUALITY" ColumnName="WORK_QUALITY" />
+                <ScalarProperty Name="COMPLETED_WORK_QUANTITY" ColumnName="COMPLETED_WORK_QUANTITY" />
+                <ScalarProperty Name="SUPERVISION_CAPABILITY" ColumnName="SUPERVISION_CAPABILITY" />
+                <ScalarProperty Name="RELATION_WITH_COLLEGUE" ColumnName="RELATION_WITH_COLLEGUE" />
+                <ScalarProperty Name="DECISION_MAKING" ColumnName="DECISION_MAKING" />
+                <ScalarProperty Name="DECISION_IMPLEMENTATION" ColumnName="DECISION_IMPLEMENTATION" />
+                <ScalarProperty Name="TRAINING_CAPABILITY" ColumnName="TRAINING_CAPABILITY" />
+                <ScalarProperty Name="EXPRESSIBILITY_WRITING" ColumnName="EXPRESSIBILITY_WRITING" />
+                <ScalarProperty Name="EXPRESSIBILY_SPEAKING" ColumnName="EXPRESSIBILY_SPEAKING" />
+                <ScalarProperty Name="INTEREST_IN_ACR" ColumnName="INTEREST_IN_ACR" />
+                <ScalarProperty Name="DUTIFULLNESS" ColumnName="DUTIFULLNESS" />
+                <ScalarProperty Name="CREATED_ON" ColumnName="CREATED_ON" />
+                <ScalarProperty Name="CREATED_BY" ColumnName="CREATED_BY" />
+                <ScalarProperty Name="UPDATED_ON" ColumnName="UPDATED_ON" />
+                <ScalarProperty Name="UPDATED_BY" ColumnName="UPDATED_BY" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="true" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

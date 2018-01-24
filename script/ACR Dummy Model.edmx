@@ -1,0 +1,152 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl" Namespace="ACR_x0020_Dummy_x0020_Model.Store" Alias="Self" Provider="System.Data.SqlClient" ProviderManifestToken="2005">
+        <EntityContainer Name="ACR_x0020_Dummy_x0020_ModelTargetContainer" >
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema xmlns="http://schemas.microsoft.com/ado/2009/11/edm" xmlns:cg="http://schemas.microsoft.com/ado/2006/04/codegeneration" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" Namespace="ACR_x0020_Dummy_x0020_Model" Alias="Self" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" annotation:UseStrongSpatialTypes="false">
+        <EntityContainer Name="ACR_x0020_Dummy_x0020_ModelContainer" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="acr_health_report" EntityType="ACR_x0020_Dummy_x0020_Model.acr_health_report" />
+          <EntitySet Name="acr_biodata" EntityType="ACR_x0020_Dummy_x0020_Model.acr_biodata" />
+          <EntitySet Name="acr_personal_character" EntityType="ACR_x0020_Dummy_x0020_Model.acr_personal_character" />
+          <EntitySet Name="acr_work" EntityType="ACR_x0020_Dummy_x0020_Model.acr_work" />
+          <EntitySet Name="acr_comment" EntityType="ACR_x0020_Dummy_x0020_Model.acr_comment" />
+          <EntitySet Name="brief_work_description" EntityType="ACR_x0020_Dummy_x0020_Model.brief_work_description" />
+        </EntityContainer>
+        <EntityType Name="acr_health_report">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="applicant_id" Type="String" Nullable="false" />
+          <Property Name="height" Type="String" Nullable="true" />
+          <Property Name="weight" Type="String" Nullable="true" />
+          <Property Name="eye_sight" Type="String" Nullable="true" />
+          <Property Name="blood_group" Type="String" Nullable="true" />
+          <Property Name="ex_ray" Type="String" Nullable="true" />
+          <Property Name="ecg" Type="String" Nullable="true" />
+          <Property Name="health_class" Type="String" Nullable="true" />
+          <Property Name="health_weakness" Type="String" Nullable="true" />
+          <Property Name="date" Type="String" Nullable="true" />
+          <Property Name="attatchment" Type="String" Nullable="true" />
+        </EntityType>
+        <EntityType Name="acr_biodata">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" Nullable="true" />
+          <Property Name="position" Type="String" Nullable="true" />
+          <Property Name="father_name" Type="String" Nullable="true" />
+          <Property Name="marrital_status" Type="String" Nullable="true" />
+          <Property Name="childrens" Type="String" Nullable="true" />
+          <Property Name="service_name" Type="String" Nullable="true" />
+          <Property Name="job_serial_no" Type="String" Nullable="true" />
+          <Property Name="govt_join_date" Type="String" Nullable="true" />
+          <Property Name="gadget_join_date" Type="String" Nullable="true" />
+          <Property Name="cader_join_date" Type="String" Nullable="true" />
+          <Property Name="present_position_join_date" Type="String" Nullable="true" />
+          <Property Name="salary_scale" Type="String" Nullable="true" />
+          <Property Name="present_salary" Type="String" Nullable="true" />
+          <Property Name="educational_qualification" Type="String" Nullable="true" />
+          <Property Name="training_in_bd" Type="String" Nullable="true" />
+          <Property Name="training_outside_bd" Type="String" Nullable="true" />
+          <Property Name="foreign_language" Type="String" Nullable="true" />
+          <Property Name="attending_date" Type="String" Nullable="true" />
+          <Property Name="ending_date" Type="String" Nullable="false" />
+          <Property Name="brief_work_list" Type="String" Nullable="true" />
+          <Property Name="date_of_submit" Type="String" Nullable="true" />
+          <Property Name="attatchment" Type="String" Nullable="true" />
+        </EntityType>
+        <EntityType Name="acr_personal_character">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="discipline" Type="String" Nullable="true" />
+          <Property Name="judgement" Type="String" Nullable="true" />
+          <Property Name="intelligence" Type="String" Nullable="true" />
+          <Property Name="enthusiasm" Type="String" Nullable="true" />
+          <Property Name="personality" Type="String" Nullable="true" />
+          <Property Name="cooperation" Type="String" Nullable="true" />
+          <Property Name="timeliness" Type="String" Nullable="true" />
+          <Property Name="reliability" Type="String" Nullable="true" />
+          <Property Name="responsibility" Type="String" Nullable="true" />
+          <Property Name="eagerness" Type="String" Nullable="true" />
+          <Property Name="decision_making" Type="String" Nullable="true" />
+          <Property Name="safety_conscious" Type="String" Nullable="true" />
+          <Property Name="behaviour_with_public" Type="String" Nullable="true" />
+        </EntityType>
+        <EntityType Name="acr_work">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="occupational_knowledge" Type="String" Nullable="true" />
+          <Property Name="work_quality" Type="String" Nullable="true" />
+          <Property Name="work_quantity" Type="String" Nullable="true" />
+          <Property Name="managing_capability" Type="String" Nullable="true" />
+          <Property Name="relation_with_collegues" Type="String" Nullable="true" />
+          <Property Name="decision_making" Type="String" Nullable="true" />
+          <Property Name="train_junior" Type="String" Nullable="true" />
+          <Property Name="writing_capabilities" Type="String" Nullable="true" />
+          <Property Name="speaking_capabilities" Type="String" Nullable="true" />
+          <Property Name="annual_acr_writing" Type="String" Nullable="true" />
+          <Property Name="dutifulness" Type="String" Nullable="true" />
+          <Property Name="attatchment" Type="String" Nullable="true" />
+        </EntityType>
+        <EntityType Name="acr_comment">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="acr_id" Type="String" Nullable="false" />
+          <Property Name="comment_on" Type="String" Nullable="false" />
+          <Property Name="comment_details" Type="String" Nullable="false" />
+        </EntityType>
+        <EntityType Name="brief_work_description">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="acr_biodata_id" Type="String" Nullable="false" />
+          <Property Name="description" Type="String" Nullable="false" />
+        </EntityType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs" Space="C-S">
+        <Alias Key="Model" Value="ACR_x0020_Dummy_x0020_Model" />
+        <Alias Key="Target" Value="ACR_x0020_Dummy_x0020_Model.Store" />
+        <EntityContainerMapping CdmEntityContainer="ACR_x0020_Dummy_x0020_ModelContainer" StorageEntityContainer="ACR_x0020_Dummy_x0020_ModelTargetContainer">
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <edmx:Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </edmx:Connection>
+    <edmx:Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="True" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </edmx:Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -74,21 +74,21 @@
           <EntitySet Name="upazilas" EntityType="TestModel.upazila" />
           <EntitySet Name="zones" EntityType="TestModel.zone" />
           <AssociationSet Name="district_zone_fk" Association="TestModel.district_zone_fk">
-            <End Role="zone" EntitySet="zones" />
-            <End Role="district" EntitySet="districts" />
+            <End EntitySet="zones" Role="zone" />
+            <End EntitySet="districts" Role="district" />
           </AssociationSet>
           <AssociationSet Name="upazila_district_fk" Association="TestModel.upazila_district_fk">
-            <End Role="district" EntitySet="districts" />
-            <End Role="upazila" EntitySet="upazilas" />
+            <End EntitySet="districts" Role="district" />
+            <End EntitySet="upazilas" Role="upazila" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="district">
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="zone_id" Type="Int32" Nullable="false" />
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
+          <Property Name="zone_id" Nullable="false" Type="Int32" />
           <NavigationProperty Name="zone" Relationship="TestModel.district_zone_fk" FromRole="district" ToRole="zone" />
           <NavigationProperty Name="upazilas" Relationship="TestModel.upazila_district_fk" FromRole="district" ToRole="upazila" />
         </EntityType>
@@ -96,8 +96,8 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
           <Property Name="district_id" Type="Int32" />
           <NavigationProperty Name="district" Relationship="TestModel.upazila_district_fk" FromRole="upazila" ToRole="district" />
         </EntityType>
@@ -105,13 +105,13 @@
           <Key>
             <PropertyRef Name="id" />
           </Key>
-          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="id" Nullable="false" annotation:StoreGeneratedPattern="Identity" Type="Int32" />
+          <Property Name="name" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" Type="String" />
           <NavigationProperty Name="districts" Relationship="TestModel.district_zone_fk" FromRole="zone" ToRole="district" />
         </EntityType>
         <Association Name="district_zone_fk">
-          <End Type="TestModel.zone" Role="zone" Multiplicity="1" />
-          <End Type="TestModel.district" Role="district" Multiplicity="*" />
+          <End Type="TestModel.zone" Multiplicity="1" Role="zone" />
+          <End Type="TestModel.district" Multiplicity="*" Role="district" />
           <ReferentialConstraint>
             <Principal Role="zone">
               <PropertyRef Name="id" />
@@ -122,8 +122,8 @@
           </ReferentialConstraint>
         </Association>
         <Association Name="upazila_district_fk">
-          <End Type="TestModel.district" Role="district" Multiplicity="0..1" />
-          <End Type="TestModel.upazila" Role="upazila" Multiplicity="*" />
+          <End Type="TestModel.district" Multiplicity="0..1" Role="district" />
+          <End Type="TestModel.upazila" Multiplicity="*" Role="upazila" />
           <ReferentialConstraint>
             <Principal Role="district">
               <PropertyRef Name="id" />
